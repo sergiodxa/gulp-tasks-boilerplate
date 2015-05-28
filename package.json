@@ -1,0 +1,22 @@
+{
+  "name": "gulp-tasks-boilerplate",
+  "version": "1.0.0",
+  "description": "Plantilla de tareas de Gulp.js para distintos usos, con un package.json con todos los módulos requeridos.",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sergiodxa/gulp-tasks-boilerplate.git"
+  },
+  "keywords": [
+    "gulp",
+    "task",
+    "automated",
+    "boilerplate"
+  ],
+  "author": "Sergio Daniel Xalambrí <sergio@xalambri.com.ar> (http://sergio.xalambri.com.ar/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sergiodxa/gulp-tasks-boilerplate/issues"
+  },
+  "homepage": "https://github.com/sergiodxa/gulp-tasks-boilerplate"
+}
