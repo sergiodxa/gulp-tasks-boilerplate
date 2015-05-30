@@ -18,6 +18,8 @@ var config = {
     optional: [
       'es7.asyncFunctions',
       'es7.functionBind',
+      'es7.objectRestSpread',
+      'es7.trailingFunctionCommas',
       'runtime'
     ]
   },
