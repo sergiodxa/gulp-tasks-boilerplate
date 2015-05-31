@@ -1,4 +1,5 @@
 var babelify   = require('babelify');
+var bless      = require('gulp-bless');
 var browserify = require('browserify');
 var buffer     = require('vinyl-buffer');
 var cssnext    = require('gulp-cssnext');
@@ -71,6 +72,7 @@ gulp.task('build:css', function () {
   gulp.src(paths.src.css)
     .pipe(cssnext(config.cssnext))
     .pipe(rename('style.css'))
+    .pipe(bless())
     .pipe(gulp.dest(paths.build.css))
 });
 
