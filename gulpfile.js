@@ -41,7 +41,7 @@ var paths = {
     css   : './client/src/css/main.css',
     html  : './client/src/html/**/*.html'
   },
-  dest: {
+  build: {
     js    : './client/build/js/',
     css   : './client/build/css/',
     html  : './client/build/html/'
