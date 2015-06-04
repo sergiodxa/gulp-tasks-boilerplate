@@ -25,7 +25,8 @@ var config = {
     ]
   },
   browserify: {
-    fileName: 'app.js'
+    fileName: 'app.js',
+    extensions: ['.jsx']
   },
   cssnext: {
     compress: true
@@ -60,9 +61,10 @@ gulp.task('build:js', ['eslint'], function () {
   return browserify({
     entries: paths.src.js,
     debug: true,
+    extensions: config.browserify.extensions,
     transform: [babelify.configure(config.babelify)]
   }).bundle()
-    .pipe(source(browserify.fileName))
+    .pipe(source(config.browserify.fileName))
     .pipe(buffer())
     .pipe(uglify())
     .pipe(gulp.dest(paths.build.js))
