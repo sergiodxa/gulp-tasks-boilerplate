@@ -1,20 +1,19 @@
-var babelify   = require('babelify');
-var bless      = require('gulp-bless');
-var browserify = require('browserify');
-var buffer     = require('vinyl-buffer');
-var cssnext    = require('gulp-cssnext');
-var eslint     = require('gulp-eslint');
-var gulp       = require('gulp');
-var minifyHTML = require('gulp-minify-html');
-var rename     = require('gulp-rename');
-var source     = require('vinyl-source-stream');
-var uglify     = require('gulp-uglify');
+import babelify from 'babelify';
+import bless from 'bless';
+import browserify from 'browserify';
+import buffer from 'vinyl-buffer';
+import cssnext from 'gulp-cssnext';
+import eslint from 'gulp-eslint';
+import minifyHTML from 'gulp-minify-html';
+import rename from 'gulp-rename';
+import source from 'vinyl-source-stream';
+import uglify from 'gulp-uglify';
 
 // configuración para distintas tareas
 // babelify: configuración de babelify indicando que características
 // experimentales activar
 // browserify: configuración del nombre del archivo generado
-var config = {
+const config = {
   babelify: {
     optional: [
       'es7.asyncFunctions',
@@ -35,7 +34,7 @@ var config = {
 
 // rutas de donde leer archivos en las distintas tareas
 // y donde dejar los archivos generados
-var paths = {
+const paths = {
   src: {
     eslint: './client/src/es6/**/*.js',
     js    : './client/src/es6/app.js',
@@ -49,7 +48,7 @@ var paths = {
   }
 }
 
-gulp.task('eslint', function () {
+gulp.task('eslint', () => {
   return gulp
     .src(paths.src.eslint)
     .pipe(eslint())
@@ -57,7 +56,7 @@ gulp.task('eslint', function () {
     .pipe(eslint.failOnError());
 });
 
-gulp.task('build:js', ['eslint'], function () {
+gulp.task('build:js', ['eslint'], () => {
   return browserify({
     entries: paths.src.js,
     debug: true,
@@ -70,7 +69,7 @@ gulp.task('build:js', ['eslint'], function () {
     .pipe(gulp.dest(paths.build.js))
 });
 
-gulp.task('build:css', function () {
+gulp.task('build:css', () =>) {
   gulp.src(paths.src.css)
     .pipe(cssnext(config.cssnext))
     .pipe(rename('style.css'))
@@ -78,13 +77,13 @@ gulp.task('build:css', function () {
     .pipe(gulp.dest(paths.build.css))
 });
 
-gulp.task('build:html', function () {
+gulp.task('build:html', () => {
   gulp.src(paths.src.html)
     .pipe(minifyHTML())
     .pipe(gulp.dest(paths.build.html))
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', () => {
   gulp.watch([paths.src.eslint], ['build:js']);
   gulp.watch([paths.src.css], ['build:css'])
   gulp.watch([paths.src.html], ['build:html', 'build:css']);
