@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/sergiodxa/gulp-tasks-boilerplate",
   "devDependencies": {
+    "babel": "^5.8.21",
     "babel-eslint": "^3.1.7",
     "babel-runtime": "^5.4.7",
     "babelify": "^6.1.1",
