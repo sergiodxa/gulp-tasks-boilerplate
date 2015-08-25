@@ -14,15 +14,6 @@ import uglify from 'gulp-uglify';
 // experimentales activar
 // browserify: configuración del nombre del archivo generado
 const config = {
-  babelify: {
-    optional: [
-      'es7.asyncFunctions',
-      'es7.functionBind',
-      'es7.objectRestSpread',
-      'es7.trailingFunctionCommas',
-      'runtime'
-    ]
-  },
   browserify: {
     fileName: 'app.js',
     extensions: ['.jsx']
@@ -61,7 +52,7 @@ gulp.task('build:js', ['eslint'], () => {
     entries: paths.src.js,
     debug: true,
     extensions: config.browserify.extensions,
-    transform: [babelify.configure(config.babelify)]
+    transform: [babelify]
   }).bundle()
     .pipe(source(config.browserify.fileName))
     .pipe(buffer())
